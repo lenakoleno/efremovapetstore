@@ -1,4 +1,4 @@
-package api.models;
+package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
@@ -11,7 +11,6 @@ public class Pet {
     private Integer id;
     private String name;
     private String status;
-
 
     @Override
     public String toString() {

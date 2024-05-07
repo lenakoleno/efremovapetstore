@@ -1,28 +1,29 @@
-package api;
+package api.rest.tests;
 
-import api.data.DataGenerator;
-import api.models.Pet;
-import api.spec.Specs;
+import models.Pet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static data.GeneratorData.getPet;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
+import static specification.RequestSpecification.request;
+import static specification.ResponseSpecification.response;
 
-public class RestApiTests {
+public class PetCreatingApiTest {
     @Test
     @DisplayName("Pet creating")
     void petCreatingTest() {
-        Pet newPet = DataGenerator.getPet(8, 16, true, true, true);
+        Pet newPet = getPet(8, 16, true, true, true);
 
-        Integer response = given(Specs.request)
+        Integer resp = given(request)
                 .body(newPet)
                 .when()
                 .post("/v2/pet")
                 .then()
-                .spec(Specs.responseSpec)
+                .spec(response)
                 .extract().path("id");
 
-        assertThat(response).isEqualTo(newPet.getId());
+        assertThat(resp).isEqualTo(newPet.getId());
     }
 }

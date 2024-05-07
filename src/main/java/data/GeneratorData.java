@@ -1,11 +1,11 @@
-package api.data;
+package data;
 
-import api.models.Pet;
 import com.github.javafaker.Faker;
+import models.Pet;
 
-public class DataGenerator {
-    public static Pet getPet(int minimumLength, int maximumLength, boolean includeUppercase,
-                                boolean includeSpecial, boolean includeDigit) {
+public class GeneratorData {
+    public static Pet getPet(int minLength, int maxLength, boolean uppercase,
+                                boolean special, boolean digit) {
         Faker faker = new Faker();
         return Pet.builder()
                 .id(faker.hashCode())
