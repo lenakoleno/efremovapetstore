@@ -1,17 +1,17 @@
-<html>
 <#-- @ftlvariable name="data" type="io.qameta.allure.attachment.http.HttpRequestAttachment" -->
 <head>
-    <meta http-equiv="content-type" content="text/html; charset = UTF-8">
-    <script src="https://yastatic.net/jquery/2.2.3/jquery.min.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 
-    <link href="https://yastatic.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <script src="https://yastatic.net/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <link type="text/css" href="https://yandex.st/highlightjs/8.0/styles/github.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://yandex.st/highlightjs/8.0/languages/bash.min.js"></script>
-    <script type="text/javascript" src="https://yandex.st/highlightjs/8.0/languages/json.min.js"></script>
-    <script type="text/javascript" src="https://yandex.st/highlightjs/8.0/languages/xml.min.js"></script>
+    <link type="text/css" href="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/styles/github.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/highlight.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/languages/bash.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/languages/json.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/highlight.js@11.3.1/languages/xml.min.js"></script>
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
 
     <style>
@@ -22,7 +22,7 @@
 </head>
 <body>
 <div>
-    <pre><code><#if data.method??>${data.method}<#else>GET</#if>: <#if data.url??>${data.url}<#else>Unknown</#if></code></pre>
+    <pre><code><#if data.method?? && data.method?has_content>${data.method}<#else>GET</#if>: <#if data.url?? && data.url?has_content>${data.url}<#else>Unknown</#if></code></pre>
 </div>
 
 <#if data.body??>
