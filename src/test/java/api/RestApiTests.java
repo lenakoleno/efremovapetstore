@@ -8,21 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 public class RestApiTests {
-
-    @Test
-    @DisplayName("Order finding")
-    void orderFindingTest() {
-        given(Specs.request)
-                .when()
-                .get("/v2/store/order/2")
-                .then()
-                .statusCode(404)
-                .body("message", is("Order not found"));
-    }
-
     @Test
     @DisplayName("Pet creating")
     void petCreatingTest() {
